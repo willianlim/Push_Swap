@@ -20,5 +20,7 @@ void	ft_insert_node(Tree *t, int val);
 void	ft_insert_node_left(Node *n, int val);
 void	ft_insert_node_right(Node *n, int val);
 void	ft_tree_print(Node *root);
+Node	*ft_new_node(int val);
+Node	*ft_new_version_insert(Node *root, int val);
 
 #endif

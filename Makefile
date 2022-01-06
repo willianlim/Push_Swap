@@ -13,7 +13,7 @@ REMOVE = rm -rf
 SRC_CIRC += ft_circList_add_first.c ft_circList_add_last.c ft_circList_create.c
 SRC_CIRC += ft_circList_destroy.c ft_circList_inverted_print.c
 SRC_CIRC += ft_circList_is_empty.c ft_circList_print.c ft_circList_remove.c
-SRC_CIRC += ft_circNode_create.c ft_circNode_destroy.c
+SRC_CIRC += ft_circNode_create.c ft_circNode_destroy.c ft_new_node.c ft_new_version_insert.c
 OBJCIRC = $(SRC_CIRC:.c=.o)
 OBJECTS_CIRC = $(addprefix $(OBJDIR)/, $(OBJCIRC))
 

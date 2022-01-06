@@ -90,11 +90,13 @@ int	main(void)
 		case 1:
 			printf("Digite um valor: ");
 			scanf("%d", &val);
-			ft_insert_node(&t, val);
+			t.root = ft_new_version_insert(t.root, val);
+			// ft_insert_node(&t, val);
 			break ;
 		case 2:
 			printf("\nImpressão da árvore binária: \n");
 			ft_tree_print(t.root);
+			puts("");
 			break ;
 		default:
 			i = 0;
