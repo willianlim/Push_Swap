@@ -6,19 +6,19 @@ LIB_PATH = ./libft
 LIBFT = libft.a
 OBJDIR = ./objects
 SRCDIR_CIRCLIST = ./sources/Doubly_Circular_Linked_List
-SRCDIR_BTREE = ./sources/Binary_tree
+SRCDIR_BTREE = ./sources/Red_Black_Tree
 INCLUDE = ./includes
 REMOVE = rm -rf
 
 SRC_CIRC += ft_circList_add_first.c ft_circList_add_last.c ft_circList_create.c
 SRC_CIRC += ft_circList_destroy.c ft_circList_inverted_print.c
 SRC_CIRC += ft_circList_is_empty.c ft_circList_print.c ft_circList_remove.c
-SRC_CIRC += ft_circNode_create.c ft_circNode_destroy.c ft_new_node.c ft_new_version_insert.c
+SRC_CIRC += ft_circNode_create.c ft_circNode_destroy.c
 OBJCIRC = $(SRC_CIRC:.c=.o)
 OBJECTS_CIRC = $(addprefix $(OBJDIR)/, $(OBJCIRC))
 
-SRC_BTREE += ft_insert_node.c ft_insert_node_left.c ft_insert_node_right.c
-SRC_BTREE += ft_tree_print.c
+SRC_BTREE += rb_freeall.c rbt_print.c rbt_insert.c intrin_rbtree_rgt_rot.c
+SRC_BTREE += intrin_rbtree_lft_rot.c intrin_insert_fixup.c
 OBJBTREE = $(SRC_BTREE:.c=.o)
 OBJECTS_BTREE = $(addprefix $(OBJDIR)/, $(OBJBTREE))
 

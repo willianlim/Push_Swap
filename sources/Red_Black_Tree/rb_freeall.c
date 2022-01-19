@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tree_print.c                                    :+:      :+:    :+:   */
+/*   rb_freeall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 17:25:29 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 23:45:51 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/18 11:18:43 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/18 11:22:47 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_binary_tree.h"
+#include "ft_rbtree.h"
 
-void	ft_tree_print(Node *root)
+static void	recur_free(t_rbt_node *start)
 {
-	if (root != NULL)
+	t_rbt_node	*tmp;
+
+	while (start->lft || start->rgt)
 	{
-		ft_tree_print(root->left);
-		printf("%d ", root->val);
-		ft_tree_print(root->right);
+		if (start->lft)
+			start = start->lft;
+		else
+			start = start->rgt;
 	}
+	tmp = start->up;
+	free(start);
+	if (tmp)
+	{
+		if (start == tmp->lft)
+			tmp->lft = NULL;
+		else
+			tmp->rgt = NULL;
+		recur_free(tmp);
+	}
+}
+
+void	rb_freeall(t_rbt_node **root)
+{
+	recur_free(*root);
+	*root = NULL;
 }

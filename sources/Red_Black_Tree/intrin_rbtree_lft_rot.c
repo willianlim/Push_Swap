@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_new_version_insert.c                            :+:      :+:    :+:   */
+/*   intrin_rbtree_lft_rot.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 23:30:01 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 23:36:58 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/18 10:06:13 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/19 16:07:08 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_binary_tree.h"
+#include "ft_rbtree.h"
 
-Node	*ft_new_version_insert(Node *root, int val)
+void	intrin_rbtree_lft_rot(struct s_rbt_node **root, struct s_rbt_node *x)
 {
-	if (root == NULL)
-		return (ft_new_node(val));
+	t_rbt_node	*y;
+
+	if (!x || !x->rgt)
+		return ;
+	y = x->rgt;
+	x->rgt = y->lft;
+	if (x->rgt != NULL)
+		x->rgt->up = x;
+	y->up = x->up;
+	if (x->up == NULL)
+		(*root) = y;
+	else if (x == x->up->lft)
+		x->up->lft = y;
 	else
-	{
-		if (val < root->val)
-			root->left = ft_new_version_insert(root->left, val);
-		if (val > root->val)
-			root->right = ft_new_version_insert(root->right, val);
-		return (root);
-	}
+		x->up->rgt = y;
+	y->lft = x;
+	x->up = y;
 }
