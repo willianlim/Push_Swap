@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_add_last.c                             :+:      :+:    :+:   */
+/*   ft_rbt_maximum.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 01:27:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:52:34 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/19 17:27:00 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:14:10 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_rbtree.h"
 
-void	ft_circlist_add_last(t_circlist *L, int val)
+void	ft_rbt_maximun(t_rbt_tree *tree)
 {
-	t_circnode	*p;
+	t_rbt_node	*aux;
 
-	p = ft_circnode_create(val);
-	if (ft_circlist_is_empty(L))
-		L->begin = p;
-	else
-	{
-		p->prev = L->end;
-		L->end->next = p;
-		p->next = L->begin;
-		L->begin->prev = p;
-	}
-	L->end = p;
-	L->size++;
+	aux = tree->root;
+	while (aux->right != NULL)
+		aux = aux->right;
+	tree->maximum = aux;
 }

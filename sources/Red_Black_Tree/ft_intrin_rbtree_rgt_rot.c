@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_freeall.c                                       :+:      :+:    :+:   */
+/*   ft_intrin_rbtree_rgt_rot.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:18:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/18 11:22:47 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/18 11:01:06 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:15:23 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbtree.h"
 
-static void	recur_free(t_rbt_node *start)
+void	ft_intrin_rbtree_rgt_rot(t_rbt_tree *tree, struct s_rbt_node *y)
 {
-	t_rbt_node	*tmp;
+	t_rbt_node	*x;
 
-	while (start->lft || start->rgt)
-	{
-		if (start->lft)
-			start = start->lft;
-		else
-			start = start->rgt;
-	}
-	tmp = start->up;
-	free(start);
-	if (tmp)
-	{
-		if (start == tmp->lft)
-			tmp->lft = NULL;
-		else
-			tmp->rgt = NULL;
-		recur_free(tmp);
-	}
-}
-
-void	rb_freeall(t_rbt_node **root)
-{
-	recur_free(*root);
-	*root = NULL;
+	if (!y || !y->left)
+		return ;
+	x = y->left;
+	y->left = x->right;
+	if (x->right != NULL)
+		x->right->parent = y;
+	x->parent = y->parent;
+	if (x->parent == NULL)
+		tree->root = x;
+	else if (y == y->parent->left)
+		y->parent->left = x;
+	else
+		y->parent->right = x;
+	x->right = y;
+	y->parent = x;
 }

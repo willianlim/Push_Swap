@@ -6,18 +6,18 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:44:13 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 03:49:38 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:52:11 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_circ_list.h"
 
-void	ft_circList_add_first(CircList *L, int val)
+void	ft_circlist_add_first(t_circlist *L, int val)
 {
-	CircNode	*p;
+	t_circnode	*p;
 
-	p = ft_circNode_create(val);
-	if (ft_circList_is_empty(L))
+	p = ft_circnode_create(val);
+	if (ft_circlist_is_empty(L))
 		L->end = p;
 	else
 	{

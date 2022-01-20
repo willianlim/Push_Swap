@@ -10,15 +10,17 @@ SRCDIR_BTREE = ./sources/Red_Black_Tree
 INCLUDE = ./includes
 REMOVE = rm -rf
 
-SRC_CIRC += ft_circList_add_first.c ft_circList_add_last.c ft_circList_create.c
-SRC_CIRC += ft_circList_destroy.c ft_circList_inverted_print.c
-SRC_CIRC += ft_circList_is_empty.c ft_circList_print.c ft_circList_remove.c
-SRC_CIRC += ft_circNode_create.c ft_circNode_destroy.c
+SRC_CIRC += ft_circlist_add_first.c ft_circlist_add_last.c ft_circlist_create.c
+SRC_CIRC += ft_circlist_destroy.c ft_circlist_inverted_print.c
+SRC_CIRC += ft_circlist_is_empty.c ft_circlist_print.c ft_circlist_remove.c
+SRC_CIRC += ft_circnode_create.c ft_circnode_destroy.c
 OBJCIRC = $(SRC_CIRC:.c=.o)
 OBJECTS_CIRC = $(addprefix $(OBJDIR)/, $(OBJCIRC))
 
-SRC_BTREE += rb_freeall.c rbt_print.c rbt_insert.c intrin_rbtree_rgt_rot.c
-SRC_BTREE += intrin_rbtree_lft_rot.c intrin_insert_fixup.c
+SRC_BTREE += ft_rbt_freeall.c ft_rbt_print.c ft_rbt_insert.c
+SRC_BTREE += ft_intrin_rbtree_rgt_rot.c ft_intrin_rbtree_lft_rot.c
+SRC_BTREE += ft_intrin_insert_fixup.c ft_rbt_minimum.c
+SRC_BTREE += ft_rbt_maximum.c mytime.c ft_rbt_create.c
 OBJBTREE = $(SRC_BTREE:.c=.o)
 OBJECTS_BTREE = $(addprefix $(OBJDIR)/, $(OBJBTREE))
 

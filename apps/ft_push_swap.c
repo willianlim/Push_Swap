@@ -13,61 +13,61 @@
 // 		ft_circList_add_first(L, rand());
 // 	ft_circList_print(L);
 
-	// puts("empty list");
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("empty list");
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 99");
-	// ft_circList_remove(L, 99);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 99");
+// 	ft_circList_remove(L, 99);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("adding last 10, 2, 7, 4, 5, 7");
-	// ft_circList_add_last(L, 10);
-	// ft_circList_add_last(L, 2);
-	// ft_circList_add_last(L, 7);
-	// ft_circList_add_last(L, 4);
-	// ft_circList_add_last(L, 5);
-	// ft_circList_add_last(L, 7);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("adding last 10, 2, 7, 4, 5, 7");
+// 	ft_circList_add_last(L, 10);
+// 	ft_circList_add_last(L, 2);
+// 	ft_circList_add_last(L, 7);
+// 	ft_circList_add_last(L, 4);
+// 	ft_circList_add_last(L, 5);
+// 	ft_circList_add_last(L, 7);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 99");
-	// ft_circList_remove(L, 99);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 99");
+// 	ft_circList_remove(L, 99);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 10");
-	// ft_circList_remove(L, 10);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 10");
+// 	ft_circList_remove(L, 10);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 2");
-	// ft_circList_remove(L, 2);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 2");
+// 	ft_circList_remove(L, 2);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 7");
-	// ft_circList_remove(L, 7);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 7");
+// 	ft_circList_remove(L, 7);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 4");
-	// ft_circList_remove(L, 4);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 4");
+// 	ft_circList_remove(L, 4);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 5");
-	// ft_circList_remove(L, 5);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 5");
+// 	ft_circList_remove(L, 5);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// puts("remove 7");
-	// ft_circList_remove(L, 7);
-	// ft_circList_print(L);
-	// ft_circList_inverted_print(L);
+// 	puts("remove 7");
+// 	ft_circList_remove(L, 7);
+// 	ft_circList_print(L);
+// 	ft_circList_inverted_print(L);
 
-	// ft_circList_destroy(&L);
+// 	ft_circList_destroy(&L);
 
 // 	return (0);
 // }
@@ -77,49 +77,100 @@
 
 int	main(int argc, char *argv[])
 {
-	t_rbt_node	*root;
-	int		i;
+	t_rbt_tree	*tree;
+	int			i;
 
-	root = NULL;
-	rbt_insert(&root, 10);
-	rbt_print(root);
+	tree = ft_rbt_create();
+	ft_rbt_insert(tree, 10);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 18);
-	rbt_print(root);
+	ft_rbt_insert(tree, 18);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 7);
-	rbt_print(root);
+	ft_rbt_insert(tree, 7);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 15);
-	rbt_print(root);
+	ft_rbt_insert(tree, 15);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 16);
-	rbt_print(root);
+	ft_rbt_insert(tree, 16);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 30);
-	rbt_print(root);
+	ft_rbt_insert(tree, 30);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 25);
-	rbt_print(root);
+	ft_rbt_insert(tree, 25);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 40);
-	rbt_print(root);
+	ft_rbt_insert(tree, 40);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 60);
-	rbt_print(root);
+	ft_rbt_insert(tree, 60);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 2);
-	rbt_print(root);
+	ft_rbt_insert(tree, 2);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 1);
-	rbt_print(root);
+	ft_rbt_insert(tree, 1);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 	puts("");
-	rbt_insert(&root, 70);
+	ft_rbt_insert(tree, 70);
+	ft_rbt_print(tree->root);
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
+	puts("");
 
-	// i = -1;
-	// while (++i < NB_ELEMS)
-	// 	rbt_insert(&root, rand());
-	rbt_print(root);
-	puts("");
+	ft_rbt_minimun(tree);
+	printf("O menor valor dessa árvore é: %d\n", tree->minimum->data);
+	ft_rbt_maximun(tree);
+	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
+
+	ft_rbt_freeall(tree);
 	return (0);
 }

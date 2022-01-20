@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intrin_rbtree_lft_rot.c                            :+:      :+:    :+:   */
+/*   ft_rbt_minimum.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 10:06:13 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/19 16:07:08 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/19 17:09:59 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:45:04 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbtree.h"
 
-void	intrin_rbtree_lft_rot(struct s_rbt_node **root, struct s_rbt_node *x)
+void	ft_rbt_minimun(t_rbt_tree *tree)
 {
-	t_rbt_node	*y;
+	t_rbt_node	*aux;
 
-	if (!x || !x->rgt)
-		return ;
-	y = x->rgt;
-	x->rgt = y->lft;
-	if (x->rgt != NULL)
-		x->rgt->up = x;
-	y->up = x->up;
-	if (x->up == NULL)
-		(*root) = y;
-	else if (x == x->up->lft)
-		x->up->lft = y;
-	else
-		x->up->rgt = y;
-	y->lft = x;
-	x->up = y;
+	aux = tree->root;
+	while (aux->left != NULL)
+		aux = aux->left;
+	tree->minimum = aux;
 }

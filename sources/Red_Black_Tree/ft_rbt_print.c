@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_add_last.c                             :+:      :+:    :+:   */
+/*   ft_rbt_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 01:27:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:52:34 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/18 11:13:52 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:44:20 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+	// if (root == NULL)
+	// 	return ;
+	// rbt_print(root->left);
+	// printf("%d\n", root->data);
+	// rbt_print(root->rgt);
 
-void	ft_circlist_add_last(t_circlist *L, int val)
+#include "ft_rbtree.h"
+
+void	ft_rbt_print(t_rbt_node *root)
 {
-	t_circnode	*p;
+	static int	last;
 
-	p = ft_circnode_create(val);
-	if (ft_circlist_is_empty(L))
-		L->begin = p;
-	else
-	{
-		p->prev = L->end;
-		L->end->next = p;
-		p->next = L->begin;
-		L->begin->prev = p;
-	}
-	L->end = p;
-	L->size++;
+	last = 0;
+	if (root == NULL)
+		return ;
+	ft_rbt_print(root->left);
+	printf("%d\t%c\n", root->data, root->color);
+	if (root->data < last)
+		printf("PUTE\n");
+	last = root->data;
+	ft_rbt_print(root->right);
 }

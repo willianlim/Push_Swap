@@ -6,19 +6,19 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:50:26 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 01:50:28 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:59:45 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_circ_list.h"
 
-CircList	*ft_circList_create()
+t_circlist	*ft_circlist_create(void)
 {
-	CircList	*L;
+	t_circlist	*l;
 
-	L = (CircList *)malloc(sizeof(CircList));
-	L->begin = NULL;
-	L->end = NULL;
-	L->size = 0;
-	return (L);
+	l = (t_circlist *)malloc(sizeof(t_circlist));
+	l->begin = NULL;
+	l->end = NULL;
+	l->size = 0;
+	return (l);
 }

@@ -6,47 +6,48 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:29:56 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 03:50:18 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 18:04:35 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_circ_list.h"
 
-void	ft_circList_remove(CircList *L, int val)
+void	ft_circlist_remove(t_circlist *l, int val)
 {
-	if (!ft_circList_is_empty(L))
+	t_circnode	*p;
+
+	if (!ft_circlist_is_empty(l))
 	{
-		CircNode	*p;
-		if (L->begin->val == val)
+		if (l->begin->val == val)
 		{
-			p = L->begin;
-			if (L->begin == L->end)
+			p = l->begin;
+			if (l->begin == l->end)
 			{
-				L->begin = NULL;
-				L->end = NULL;
+				l->begin = NULL;
+				l->end = NULL;
 			}
 			else
 			{
-				L->begin = p->next;
-				L->begin->prev = L->end;
-				L->end->next = L->begin;
+				l->begin = p->next;
+				l->begin->prev = l->end;
+				l->end->next = l->begin;
 			}
-			ft_circNode_destroy(&p);
-			L->size--;
+			ft_circnode_destroy(&p);
+			l->size--;
 		}
 		else
 		{
-			p = L->begin->next;
-			while (p != L->begin)
+			p = l->begin->next;
+			while (p != l->begin)
 			{
 				if (p->val == val)
 				{
-					if (L->end == p)
-						L->end = p->prev;
+					if (l->end == p)
+						l->end = p->prev;
 					p->prev->next = p->next;
 					p->next->prev = p->prev;
-					ft_circNode_destroy(&p);
-					L->size--;
+					ft_circnode_destroy(&p);
+					l->size--;
 					break ;
 				}
 				else

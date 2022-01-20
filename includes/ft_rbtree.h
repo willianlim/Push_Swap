@@ -1,29 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rbtree.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/20 17:35:12 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:36:52 by wrosendo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_RBTREE_H
-#define FT_RBTREE_H
+# define FT_RBTREE_H
 
-#include <stdio.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-#define BLACK 'B'
-#define RED 'R'
+# define BLACK 'B'
+# define RED 'R'
 
-typedef struct	s_rbt_node
+typedef struct s_rbt_node
 {
-	int					dat;
-	char				col;
-	struct s_rbt_node	*lft;
-	struct s_rbt_node	*rgt;
-	struct s_rbt_node	*up;
+	int					data;
+	char				color;
+	struct s_rbt_node	*left;
+	struct s_rbt_node	*right;
+	struct s_rbt_node	*parent;
 }t_rbt_node;
 
-typedef t_rbt_node	t_rb_tree;
+typedef struct s_rbt_tree
+{
+	size_t		size;
+	t_rbt_node	*root;
+	t_rbt_node	*minimum;
+	t_rbt_node	*middle;
+	t_rbt_node	*maximum;
+}t_rbt_tree;
 
-void	intrin_insert_fixup(t_rbt_node **root, t_rbt_node *z);
-void	intrin_rbtree_lft_rot(t_rbt_node **root, t_rbt_node *x);
-void	intrin_rbtree_rgt_rot(t_rbt_node **root, t_rbt_node *y);
-void	rbt_insert(t_rbt_node **root, int dat);
-void	rbt_print(t_rbt_node *root);
-void	rb_freeall(t_rbt_node **root);
-
+void		ft_intrin_insert_fixup(t_rbt_tree *tree, t_rbt_node *z);
+void		ft_intrin_rbtree_lft_rot(t_rbt_tree *tree, t_rbt_node *x);
+void		ft_intrin_rbtree_rgt_rot(t_rbt_tree *tree, t_rbt_node *y);
+t_rbt_tree	*ft_rbt_create(void);
+void		ft_rbt_freeall(t_rbt_tree *tree);
+void		ft_rbt_insert(t_rbt_tree *tree, int dat);
+void		ft_rbt_maximun(t_rbt_tree *tree);
+void		ft_rbt_minimun(t_rbt_tree *tree);
+void		ft_rbt_print(t_rbt_node *root);
 
 #endif

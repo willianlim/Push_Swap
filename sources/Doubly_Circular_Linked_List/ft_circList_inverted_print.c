@@ -6,24 +6,24 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:29:06 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 03:52:33 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 18:05:38 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_circ_list.h"
 
-void	ft_circList_inverted_print(const CircList *L)
+void	ft_circlist_inverted_print(const t_circlist *L)
 {
-	if (ft_circList_is_empty(L))
+	t_circnode	*p;
+	size_t		i;
+
+	if (ft_circlist_is_empty(L))
 	{
 		printf("L -> NULL\n");
 		printf("L -> end -> NULL\n");
 	}
 	else
 	{
-		CircNode	*p;
-		size_t		i;
-
 		printf("L -> ");
 		p = L->end;
 		i = -1;

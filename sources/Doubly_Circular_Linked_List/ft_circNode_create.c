@@ -6,17 +6,17 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:30:50 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/05 01:46:46 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:57:13 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_circ_list.h"
 
-CircNode	*ft_circNode_create(int val)
+t_circnode	*ft_circnode_create(int val)
 {
-	CircNode	*cnode;
+	t_circnode	*cnode;
 
-	cnode = (CircNode *)malloc(sizeof(CircNode));
+	cnode = (t_circnode *)malloc(sizeof(t_circnode));
 	cnode->next = cnode;
 	cnode->prev = cnode;
 	cnode->val = val;

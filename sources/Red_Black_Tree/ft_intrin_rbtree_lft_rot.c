@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rbt_print.c                                        :+:      :+:    :+:   */
+/*   ft_intrin_rbtree_lft_rot.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:13:52 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/19 16:10:26 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/18 10:06:13 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 17:13:16 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbtree.h"
 
-void	rbt_print(struct s_rbt_node *root)
+void	ft_intrin_rbtree_lft_rot(t_rbt_tree *tree, struct s_rbt_node *x)
 {
-	// if (root == NULL)
-	// 	return ;
-	// rbt_print(root->lft);
-	// printf("%d\n", root->dat);
-	// rbt_print(root->rgt);
+	t_rbt_node	*y;
 
-	static int last = 0;
-	if (root == NULL)
-		return;
-	rbt_print(root->lft);
-	printf("%d\t%c\n", root->dat, root->col);
-	if (root->dat < last)
-		printf("PUTE\n");
-	last = root->dat;
-	rbt_print(root->rgt);
+	if (!x || !x->right)
+		return ;
+	y = x->right;
+	x->right = y->left;
+	if (x->right != NULL)
+		x->right->parent = x;
+	y->parent = x->parent;
+	if (x->parent == NULL)
+		tree->root = y;
+	else if (x == x->parent->left)
+		x->parent->left = y;
+	else
+		x->parent->right = y;
+	y->left = x;
+	x->parent = y;
 }
