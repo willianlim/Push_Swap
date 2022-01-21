@@ -171,6 +171,8 @@ int	main(int argc, char *argv[])
 	ft_rbt_maximun(tree);
 	printf("O maior valor dessa árvore é: %d\n", tree->maximum->data);
 
+	ft_rbt_middle(tree->root, tree);
+	printf("Esse é o elemento do meio: %d\n", tree->middle->data);
 	ft_rbt_freeall(tree);
 	return (0);
 }

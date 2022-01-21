@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_add_first.c                            :+:      :+:    :+:   */
+/*   ft_rbt_middle.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 01:44:13 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:52:11 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/20 20:16:41 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/20 21:23:32 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_rbtree.h"
 
-void	ft_circlist_add_first(t_circlist *L, int val)
+void	ft_rbt_middle(t_rbt_node *root, t_rbt_tree *tree)
 {
-	t_circnode	*p;
-
-	p = ft_circnode_create(val);
-	if (ft_circlist_is_empty(L))
-		L->end = p;
-	else
+	if (root == NULL)
+		return ;
+	ft_rbt_middle(root->left, tree);
+	tree->size++;
+	if (tree->size == 6)
 	{
-		p->next = L->begin;
-		p->prev = L->end;
-		L->begin->prev = p;
-		L->end->next = p;
+		tree->middle = root;
+		printf("%lu\n", tree->size);
+		return ;
 	}
-	L->begin = p;
-	L->size++;
+	ft_rbt_middle(root->right, tree);
 }

@@ -20,7 +20,7 @@ OBJECTS_CIRC = $(addprefix $(OBJDIR)/, $(OBJCIRC))
 SRC_BTREE += ft_rbt_freeall.c ft_rbt_print.c ft_rbt_insert.c
 SRC_BTREE += ft_intrin_rbtree_rgt_rot.c ft_intrin_rbtree_lft_rot.c
 SRC_BTREE += ft_intrin_insert_fixup.c ft_rbt_minimum.c
-SRC_BTREE += ft_rbt_maximum.c mytime.c ft_rbt_create.c
+SRC_BTREE += ft_rbt_maximum.c mytime.c ft_rbt_create.c ft_rbt_middle.c
 OBJBTREE = $(SRC_BTREE:.c=.o)
 OBJECTS_BTREE = $(addprefix $(OBJDIR)/, $(OBJBTREE))
 

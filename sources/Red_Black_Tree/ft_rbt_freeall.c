@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:18:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:21:02 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:23:03 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ static void	ft_recur_free(t_rbt_node *start)
 void	ft_rbt_freeall(t_rbt_tree *tree)
 {
 	ft_recur_free(tree->root);
-	free(&tree->root);
+	free(tree);
 }

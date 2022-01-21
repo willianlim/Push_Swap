@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_destroy.c                              :+:      :+:    :+:   */
+/*   ft_circlist_destroy.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:24:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:55:29 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:35:33 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	ft_circlist_destroy(t_circlist **l_ref)
 		p = p->next;
 		ft_circnode_destroy(&aux);
 	}
-	free (L);
+	free (l);
 	*l_ref = NULL;
 }
