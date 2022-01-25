@@ -6,89 +6,89 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 08:41:12 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:42:37 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/21 10:45:41 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbtree.h"
 
-int	ft_uncle_is_red(t_rbt_node *z)
+int	ft_uncle_is_red(t_rbt_node *new)
 {
 	t_rbt_node	*y;
 
-	y = z->parent->parent;
-	if (z->parent == y->left)
+	y = new->parent->parent;
+	if (new->parent == y->left)
 		y = y->right;
 	else
 		y = y->left;
 	if (y && y->color == RED)
 	{
 		y->color = BLACK;
-		z->parent->color = BLACK;
-		z->parent->parent->color = RED;
-		z = z->parent->parent;
+		new->parent->color = BLACK;
+		new->parent->parent->color = RED;
+		new = new->parent->parent;
 		return (1);
 	}
 	else
 		return (0);
 }
 
-void	ft_case_lft(t_rbt_tree *tree, t_rbt_node *z)
+void	ft_case_lft(t_rbt_tree *tree, t_rbt_node *new)
 {
 	char	tmp_col;
 
-	if (z == z->parent->left)
+	if (new == new->parent->left)
 	{
-		tmp_col = z->parent->color;
-		z->parent->color = z->parent->parent->color;
-		z->parent->parent->color = tmp_col;
-		ft_intrin_rbtree_rgt_rot(tree, z->parent->parent);
+		tmp_col = new->parent->color;
+		new->parent->color = new->parent->parent->color;
+		new->parent->parent->color = tmp_col;
+		ft_intrin_rbtree_rgt_rot(tree, new->parent->parent);
 	}
 	else
 	{
-		tmp_col = z->color;
-		z->color = z->parent->parent->color;
-		z->parent->parent->color = tmp_col;
-		ft_intrin_rbtree_lft_rot(tree, z->parent);
-		ft_intrin_rbtree_rgt_rot(tree, z->parent);
+		tmp_col = new->color;
+		new->color = new->parent->parent->color;
+		new->parent->parent->color = tmp_col;
+		ft_intrin_rbtree_lft_rot(tree, new->parent);
+		ft_intrin_rbtree_rgt_rot(tree, new->parent);
 	}
 }
 
-void	ft_case_rgt(t_rbt_tree *tree, t_rbt_node *z)
+void	ft_case_rgt(t_rbt_tree *tree, t_rbt_node *new)
 {
 	char	tmp_col;
 
-	if (z == z->parent->right)
+	if (new == new->parent->right)
 	{
-		tmp_col = z->parent->color;
-		z->parent->color = z->parent->parent->color;
-		z->parent->parent->color = tmp_col;
-		ft_intrin_rbtree_lft_rot(tree, z->parent->parent);
+		tmp_col = new->parent->color;
+		new->parent->color = new->parent->parent->color;
+		new->parent->parent->color = tmp_col;
+		ft_intrin_rbtree_lft_rot(tree, new->parent->parent);
 	}
 	else
 	{
-		tmp_col = z->color;
-		z->color = z->parent->parent->color;
-		z->parent->parent->color = tmp_col;
-		ft_intrin_rbtree_rgt_rot(tree, z->parent);
-		ft_intrin_rbtree_lft_rot(tree, z->parent);
+		tmp_col = new->color;
+		new->color = new->parent->parent->color;
+		new->parent->parent->color = tmp_col;
+		ft_intrin_rbtree_rgt_rot(tree, new->parent);
+		ft_intrin_rbtree_lft_rot(tree, new->parent);
 	}
 }
 
-void	ft_intrin_insert_fixup(t_rbt_tree *tree, t_rbt_node *z)
+void	ft_intrin_insert_fixup(t_rbt_tree *tree, t_rbt_node *new)
 {
-	while (z != tree->root && z->parent != tree->root && \
-	z->parent->color == RED && z->color == RED)
+	while (new != tree->root && new->parent != tree->root && \
+	new->parent->color == RED && new->color == RED)
 	{
-		if (ft_uncle_is_red(z))
+		if (ft_uncle_is_red(new))
 		{
-			z = z->parent->parent;
+			new = new->parent->parent;
 			continue ;
 		}
-		else if (z->parent == z->parent->parent->left)
-			ft_case_lft(tree, z);
-		else if (z->parent == z->parent->parent->right)
-			ft_case_rgt(tree, z);
+		else if (new->parent == new->parent->parent->left)
+			ft_case_lft(tree, new);
+		else if (new->parent == new->parent->parent->right)
+			ft_case_rgt(tree, new);
 	}
 	tree->root->color = BLACK;
 }

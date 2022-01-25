@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rbt_create.c                                    :+:      :+:    :+:   */
+/*   ft_swap_sa_sb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 14:07:01 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/21 10:47:10 by wrosendo         ###   ########.fr       */
+/*   Created: 2022/01/24 17:32:49 by wrosendo          #+#    #+#             */
+/*   Updated: 2022/01/24 17:41:22 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_rbtree.h"
+#include "ft_push_swap.h"
 
-t_rbt_tree	*ft_rbt_create(void)
+void	ft_swap_sa_sb(t_circlist **stack_a, t_circlist **stack_b)
 {
-	t_rbt_tree	*tree;
-
-	tree = (t_rbt_tree *)malloc(sizeof(t_rbt_tree));
-	tree->root = NULL;
-	tree->minimum = NULL;
-	tree->middle = NULL;
-	tree->maximum = NULL;
-	tree->size = 0;
-	tree->count = 0;
-	return (tree);
+	ft_swap_a(stack_a);
+	ft_swap_b(stack_b);
 }

@@ -1,4 +1,5 @@
-NAME = push_swap
+NAME = ./bin/push_swap
+DIRNAME = ./bin
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
 APP = ./apps
@@ -6,7 +7,8 @@ LIB_PATH = ./libft
 LIBFT = libft.a
 OBJDIR = ./objects
 SRCDIR_CIRCLIST = ./sources/Doubly_Circular_Linked_List
-SRCDIR_BTREE = ./sources/Red_Black_Tree
+SRCDIR_RBTREE = ./sources/Red_Black_Tree
+SRCDIR_OPER = ./sources/Operations
 INCLUDE = ./includes
 REMOVE = rm -rf
 
@@ -19,22 +21,33 @@ OBJECTS_CIRC = $(addprefix $(OBJDIR)/, $(OBJCIRC))
 
 SRC_BTREE += ft_rbt_freeall.c ft_rbt_print.c ft_rbt_insert.c
 SRC_BTREE += ft_intrin_rbtree_rgt_rot.c ft_intrin_rbtree_lft_rot.c
-SRC_BTREE += ft_intrin_insert_fixup.c ft_rbt_minimum.c
-SRC_BTREE += ft_rbt_maximum.c mytime.c ft_rbt_create.c ft_rbt_middle.c
-OBJBTREE = $(SRC_BTREE:.c=.o)
-OBJECTS_BTREE = $(addprefix $(OBJDIR)/, $(OBJBTREE))
+SRC_BTREE += ft_intrin_insert_fixup.c ft_rbt_minimum.c ft_rbt_middle.c
+SRC_BTREE += ft_rbt_maximum.c mytime.c ft_rbt_create.c ft_rbt_new_node.c
+OBJRBTREE = $(SRC_BTREE:.c=.o)
+OBJECTS_RBTREE = $(addprefix $(OBJDIR)/, $(OBJRBTREE))
+
+SRC_OPER += ft_push_a.c ft_push_b.c ft_swap_b.c ft_swap_a.c ft_swap_sa_sb.c
+SRC_OPER += ft_rotate_a.c ft_rotate_b.c ft_rotate_ra_rb.c ft_reverse_rotate_a.c
+SRC_OPER += ft_reverse_rotate_b.c ft_rra_rrb.c
+OBJOPER = $(SRC_OPER:.c=.o)
+OBJECTS_OPER = $(addprefix $(OBJDIR)/, $(OBJOPER))
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS_CIRC) $(OBJECTS_BTREE)
+$(NAME): $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER)
 	$(MAKE) -C $(LIB_PATH)
-	$(CC) $(APP)/ft_push_swap.c -o $(NAME) $(OBJECTS_CIRC) $(OBJECTS_BTREE) $(LIB_PATH)/$(LIBFT)
+	@mkdir -p ./bin/
+	$(CC) $(APP)/ft_push_swap.c -o $(NAME) $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER) $(LIB_PATH)/$(LIBFT)
 
 $(OBJDIR)/%.o: $(SRCDIR_CIRCLIST)/%.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
 
-$(OBJDIR)/%.o: $(SRCDIR_BTREE)/%.c
+$(OBJDIR)/%.o: $(SRCDIR_RBTREE)/%.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR_OPER)/%.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
 
@@ -45,7 +58,7 @@ clean:
 
 fclean: clean
 	$(REMOVE) $(OBJDIR)
-	$(REMOVE) $(NAME)
+	$(REMOVE) $(DIRNAME)
 
 re: fclean all
 

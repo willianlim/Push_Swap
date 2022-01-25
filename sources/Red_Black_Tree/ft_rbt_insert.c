@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 08:24:51 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:14:44 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/21 10:43:18 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,21 @@ static void	ft_bt_insert(t_rbt_tree *tree, t_rbt_node *new)
 		y->right = new;
 	else
 		y->left = new;
-	new->color = RED;
+	tree->size++;
 	ft_intrin_insert_fixup(tree, new);
 }
 
-void	ft_rbt_insert(t_rbt_tree *tree, int dat)
+void	ft_rbt_insert(t_rbt_tree *tree, int data)
 {
-	t_rbt_node	*z;
+	t_rbt_node	*new;
 
-	z = (t_rbt_node *)malloc(sizeof(t_rbt_node));
-	z->data = dat;
-	z->left = NULL;
-	z->right = NULL;
-	z->parent = NULL;
+	new = ft_rbt_new_node(data);
 	if (tree->root == NULL)
 	{
-		z->color = BLACK;
-		tree->root = z;
+		new->color = BLACK;
+		tree->root = new;
+		tree->size++;
 	}
 	else
-		ft_bt_insert(tree, z);
+		ft_bt_insert(tree, new);
 }
