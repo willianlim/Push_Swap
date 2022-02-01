@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_create.c                               :+:      :+:    :+:   */
+/*   ft_circlist_create.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:50:26 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:59:45 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/25 09:41:55 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_circ_list.h"
 
 t_circlist	*ft_circlist_create(void)
 {

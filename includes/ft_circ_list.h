@@ -6,16 +6,16 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:37:15 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 20:35:05 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:52:28 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CIRC_LIST_H
 # define FT_CIRC_LIST_H
 
-# include <stdbool.h>
-# include <stdlib.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_circnode
 {

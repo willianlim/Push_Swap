@@ -6,11 +6,11 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:44:13 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 20:31:20 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/25 09:42:09 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_circ_list.h"
 
 void	ft_circlist_add_first(t_circlist *L, int val)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_remove.c                               :+:      :+:    :+:   */
+/*   ft_circlist_remove.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:29:56 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 18:04:35 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/25 09:41:27 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_circ_list.h"
 
 void	ft_circlist_remove(t_circlist *l, int val)
 {

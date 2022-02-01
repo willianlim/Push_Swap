@@ -1,6 +1,6 @@
 NAME = ./bin/push_swap
 DIRNAME = ./bin
-CC = clang
+CC = clang -g
 CFLAGS = -Wall -Wextra -Werror
 APP = ./apps
 LIB_PATH = ./libft
@@ -9,6 +9,7 @@ OBJDIR = ./objects
 SRCDIR_CIRCLIST = ./sources/Doubly_Circular_Linked_List
 SRCDIR_RBTREE = ./sources/Red_Black_Tree
 SRCDIR_OPER = ./sources/Operations
+SRCDIR_PUSH = ./sources/Push_Swap
 INCLUDE = ./includes
 REMOVE = rm -rf
 
@@ -32,12 +33,16 @@ SRC_OPER += ft_reverse_rotate_b.c ft_rra_rrb.c
 OBJOPER = $(SRC_OPER:.c=.o)
 OBJECTS_OPER = $(addprefix $(OBJDIR)/, $(OBJOPER))
 
+SRC_PUSH += ft_push_swap.c
+OBJPUSH = $(SRC_PUSH:.c=.o)
+OBJECTS_PUSH = $(addprefix $(OBJDIR)/, $(OBJPUSH))
+
 all: $(NAME)
 
-$(NAME): $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER)
+$(NAME): $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER) $(OBJECTS_PUSH)
 	$(MAKE) -C $(LIB_PATH)
 	@mkdir -p ./bin/
-	$(CC) $(APP)/ft_push_swap.c -o $(NAME) $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER) $(LIB_PATH)/$(LIBFT)
+	$(CC) $(APP)/main.c -o $(NAME) $(OBJECTS_CIRC) $(OBJECTS_RBTREE) $(OBJECTS_OPER) $(OBJECTS_PUSH) $(LIB_PATH)/$(LIBFT)
 
 $(OBJDIR)/%.o: $(SRCDIR_CIRCLIST)/%.c
 	@mkdir -p $(OBJDIR)
@@ -48,6 +53,10 @@ $(OBJDIR)/%.o: $(SRCDIR_RBTREE)/%.c
 	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR_OPER)/%.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR_PUSH)/%.c
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
 

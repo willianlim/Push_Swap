@@ -6,13 +6,13 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 08:24:51 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/21 10:43:18 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/31 20:42:35 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbtree.h"
 
-static void	ft_bt_insert(t_rbt_tree *tree, t_rbt_node *new)
+static int	ft_bt_insert(t_rbt_tree *tree, t_rbt_node *new)
 {
 	t_rbt_node	*y;
 	t_rbt_node	*x;
@@ -24,8 +24,10 @@ static void	ft_bt_insert(t_rbt_tree *tree, t_rbt_node *new)
 		y = x;
 		if (new->data < x->data)
 			x = x->left;
-		else
+		else if (new->data > x->data)
 			x = x->right;
+		else if (new->data == x->data)
+			return (0);
 	}
 	new->parent = y;
 	if (new->data > y->data)
@@ -34,9 +36,10 @@ static void	ft_bt_insert(t_rbt_tree *tree, t_rbt_node *new)
 		y->left = new;
 	tree->size++;
 	ft_intrin_insert_fixup(tree, new);
+	return (1);
 }
 
-void	ft_rbt_insert(t_rbt_tree *tree, int data)
+int	ft_rbt_insert(t_rbt_tree *tree, int data)
 {
 	t_rbt_node	*new;
 
@@ -47,6 +50,10 @@ void	ft_rbt_insert(t_rbt_tree *tree, int data)
 		tree->root = new;
 		tree->size++;
 	}
-	else
-		ft_bt_insert(tree, new);
+	else if (!ft_bt_insert(tree, new))
+	{
+		free (new);
+		return (0);
+	}
+	return (1);
 }

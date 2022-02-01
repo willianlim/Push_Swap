@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_inverted_print.c                       :+:      :+:    :+:   */
+/*   ft_circlist_inverted_print.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:29:06 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 18:05:38 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/25 09:41:46 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_circ_list.h"
 
 void	ft_circlist_inverted_print(const t_circlist *L)
 {

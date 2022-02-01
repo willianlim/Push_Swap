@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:35:12 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/21 10:44:21 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/31 22:59:05 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		ft_intrin_rbtree_lft_rot(t_rbt_tree *tree, t_rbt_node *x);
 void		ft_intrin_rbtree_rgt_rot(t_rbt_tree *tree, t_rbt_node *y);
 t_rbt_tree	*ft_rbt_create(void);
 void		ft_rbt_freeall(t_rbt_tree *tree);
-void		ft_rbt_insert(t_rbt_tree *tree, int data);
+int			ft_rbt_insert(t_rbt_tree *tree, int data);
 void		ft_rbt_maximun(t_rbt_tree *tree);
 void		ft_rbt_middle(t_rbt_node *root, t_rbt_tree *tree);
 void		ft_rbt_minimun(t_rbt_tree *tree);

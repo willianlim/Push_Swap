@@ -275,66 +275,70 @@
 // 	return (0);
 // }
 
-int	main(void)
+// int	main(void)
+// {
+// 	t_circlist	*stack_a;
+// 	t_circlist	*stack_b;
+// 	int			i;
+
+// 	i = 0;
+// 	stack_a = ft_circlist_create();
+// 	stack_b = ft_circlist_create();
+
+// 	// ========= caso 1 ========= //
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+
+// 	// ========= caso 2 ========= //
+// 	ft_circlist_add_last(stack_a, 10);
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+
+// 	// ========= caso 3 ========= //
+// 	ft_circlist_add_last(stack_a, 3);
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+
+// 	// ========= caso 4 ========= //
+// 	ft_circlist_add_last(stack_a, 7);
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+
+// 	// ========= caso 5 ========= //
+// 	ft_circlist_add_last(stack_a, 9);
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+
+// 	// ========= caso 6 ========= //
+// 	ft_circlist_add_last(stack_a, 66);
+// 	printf("\nantes stack a %d\n", ++i);
+// 	ft_circlist_print(stack_a);
+// 	printf("depois stack a %d\n", i);
+// 	ft_rotate_b(&stack_a);
+// 	ft_circlist_print(stack_a);
+// 	return (0);
+// }
+
+int	main(int argc, char *argv[])
 {
-	t_circlist	*stack_a;
-	t_circlist	*stack_b;
-	int			i;
-
-	i = 0;
-	stack_a = ft_circlist_create();
-	stack_b = ft_circlist_create();
-
-	// ========= caso 1 ========= //
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
-
-	// ========= caso 2 ========= //
-	ft_circlist_add_last(stack_a, 10);
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
-
-	// ========= caso 3 ========= //
-	ft_circlist_add_last(stack_a, 3);
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
-
-	// ========= caso 4 ========= //
-	ft_circlist_add_last(stack_a, 7);
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
-
-	// ========= caso 5 ========= //
-	ft_circlist_add_last(stack_a, 9);
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
-
-	// ========= caso 6 ========= //
-	ft_circlist_add_last(stack_a, 66);
-	printf("\nantes stack a %d\n", ++i);
-	ft_circlist_print(stack_a);
-	printf("depois stack a %d\n", i);
-	ft_rotate_b(&stack_a);
-	ft_circlist_print(stack_a);
+	ft_push_swap(argc, argv);
 	return (0);
 }
-
-
 
 
 

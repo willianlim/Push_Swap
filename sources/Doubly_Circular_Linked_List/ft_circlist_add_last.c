@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_circList_add_last.c                             :+:      :+:    :+:   */
+/*   ft_circlist_add_last.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 01:27:43 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/20 17:52:34 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/01/25 09:42:00 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_circ_list.h"
+#include "ft_circ_list.h"
 
 void	ft_circlist_add_last(t_circlist *L, int val)
 {
