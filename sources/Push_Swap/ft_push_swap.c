@@ -6,13 +6,23 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 09:43:06 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/31 22:56:22 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/02 02:46:18 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_verify_int(char *arr, int bol)
+static void	ft_exit_invalid(t_circlist *l, t_rbt_tree *tree, int bol)
+{
+	ft_circlist_destroy(&l);
+	ft_rbt_freeall(tree);
+	if (bol == 1)
+		printf("O valor passado não é um número válido\n");
+	if (bol == 2)
+		printf("O valor passado é duplicado\n");
+}
+
+static int	ft_verify_int(char *arr, int bol)
 {
 	int	i;
 
@@ -30,7 +40,7 @@ int	ft_verify_int(char *arr, int bol)
 	return (1);
 }
 
-int	ft_verify_argv(char *arr)
+static int	ft_verify_argv(char *arr)
 {
 	int	i;
 	int	bol;
@@ -46,27 +56,15 @@ int	ft_verify_argv(char *arr)
 	}
 	while (arr[i] != '\0')
 	{
-		if (arr[i] >= '0' && arr[i] <= '9')
+		if (ft_isdigit(arr[i]))
 			i++;
 		else
 			return (0);
-		if (arr[i] == '\0')
-			break ;
 	}
 	return (ft_verify_int(arr, bol));
 }
 
-void	ft_exit_invalid(t_circlist *l, t_rbt_tree *tree, int bol)
-{
-	ft_circlist_destroy(&l);
-	ft_rbt_freeall(tree);
-	if (bol == 1)
-		printf("O valor passado não é um número válido\n");
-	if (bol == 2)
-		printf("O valor passado é duplicado\n");
-}
-
-void	ft_check(int argc, char *argv[], t_circlist *l, t_rbt_tree *tree)
+static int	ft_check(int argc, char *argv[], t_circlist *l, t_rbt_tree *tree)
 {
 	int	i;
 
@@ -79,30 +77,47 @@ void	ft_check(int argc, char *argv[], t_circlist *l, t_rbt_tree *tree)
 			if (!ft_rbt_insert(tree, ft_atoi(argv[i])))
 			{
 				ft_exit_invalid(l, tree, 2);
-				return ;
+				return (0);
 			}
 		}
 		else
 		{
 			ft_exit_invalid(l, tree, 1);
-			return ;
+			return (0);
 		}
 	}
+	ft_rbt_minimun(tree);
+	ft_rbt_middle(tree->root, tree);
+	ft_rbt_maximun(tree);
+	return (1);
 }
 
-void	ft_push_swap(int argc, char *argv[])
+int	ft_push_swap(int argc, char *argv[])
 {
 	t_circlist	*l;
+	t_circlist	*lb;
 	t_rbt_tree	*tree;
 
+	if (argc == 1)
+	{
+		printf("é necessário mais argumentos\n");
+		return (0);
+	}
 	l = ft_circlist_create();
 	tree = ft_rbt_create();
-	if (argc == 1)
-		printf("é necessário mais argumentos\n");
-	ft_check(argc, argv, l, tree);
-	if (l->size <= 5)
-		// chamar função para resolver com 5 elementos
-	else if (l->size <= 20)
-		// chamar funçaõ para resolver com até 20 elementos
+	if (!ft_check(argc, argv, l, tree))
+		return (0);
+	lb = ft_circlist_create();
+	if (l->size <= 3)
+		ft_sort_three(l);
+	if (l->size > 3 && l->size <= 5)
+		ft_sort_five(l, lb);
+	// if ()
+		// para valores maiores
+	// ft_circlist_print(l);
 	// ft_rbt_print(tree->root);
+	ft_circlist_destroy(&l);
+	ft_circlist_destroy(&lb);
+	ft_rbt_freeall(tree);
+	return (1);
 }

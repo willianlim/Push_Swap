@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 16:11:02 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/24 16:33:35 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:54:32 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void	ft_push_b(t_circlist **from, t_circlist **to)
 		ft_stackfrom_several(from, to);
 	(*from)->size--;
 	(*to)->size++;
+	ft_putstr_fd("pb\n", STDOUT_FILENO);
 }

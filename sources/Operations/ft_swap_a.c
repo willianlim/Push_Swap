@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:28:48 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/24 17:28:56 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:56:48 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	ft_swap_a(t_circlist **stack)
 		(*stack)->begin->prev = (*stack)->end->next;
 		(*stack)->begin = (*stack)->end->next;
 	}
+	ft_putstr_fd("sa\n", STDOUT_FILENO);
 }

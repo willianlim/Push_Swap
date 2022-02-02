@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:37:15 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/31 17:52:28 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:32:57 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_circlist
 {
 	t_circnode	*begin;
 	t_circnode	*end;
+	t_circnode	*minimum;
+	t_circnode	*middle;
+	t_circnode	*maximum;
 	size_t		size;
 }t_circlist;
 

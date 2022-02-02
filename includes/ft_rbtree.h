@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:35:12 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/31 22:59:05 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/01 10:39:50 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_rbt_node
 
 typedef struct s_rbt_tree
 {
-	size_t		count;
-	size_t		size;
+	int			count;
+	int			size;
 	t_rbt_node	*root;
 	t_rbt_node	*minimum;
 	t_rbt_node	*middle;

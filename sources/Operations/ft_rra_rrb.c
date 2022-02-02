@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 09:23:07 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/01/25 09:24:43 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:56:38 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	ft_rra_rrb(t_circlist **stack_a, t_circlist **stack_b)
 {
 	ft_reverse_rotate_a(stack_a);
 	ft_reverse_rotate_b(stack_b);
+	ft_putstr_fd("rrr\n", STDOUT_FILENO);
 }

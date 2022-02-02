@@ -33,7 +33,7 @@ SRC_OPER += ft_reverse_rotate_b.c ft_rra_rrb.c
 OBJOPER = $(SRC_OPER:.c=.o)
 OBJECTS_OPER = $(addprefix $(OBJDIR)/, $(OBJOPER))
 
-SRC_PUSH += ft_push_swap.c
+SRC_PUSH += ft_push_swap.c ft_sort_three.c ft_sort_five.c
 OBJPUSH = $(SRC_PUSH:.c=.o)
 OBJECTS_PUSH = $(addprefix $(OBJDIR)/, $(OBJPUSH))
 
@@ -61,6 +61,9 @@ $(OBJDIR)/%.o: $(SRCDIR_PUSH)/%.c
 	$(CC) $(CFLAGS) -c $< -I $(INCLUDE) -o $@
 
 bonus: all
+
+# debug:
+# 	bash test.sh
 
 clean:
 	$(MAKE) clean -C $(LIB_PATH)
