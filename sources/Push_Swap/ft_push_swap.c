@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 09:43:06 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/02 02:46:18 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:52:50 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,6 @@ int	ft_push_swap(int argc, char *argv[])
 		ft_sort_three(l);
 	if (l->size > 3 && l->size <= 5)
 		ft_sort_five(l, lb);
-	// if ()
-		// para valores maiores
-	// ft_circlist_print(l);
-	// ft_rbt_print(tree->root);
 	ft_circlist_destroy(&l);
 	ft_circlist_destroy(&lb);
 	ft_rbt_freeall(tree);

@@ -1,56 +1,55 @@
-# /bim/ba
 # reset
 # make debug
 echo -e "\n#-----------------#\n#test 1 => ref 60 50 70 \n##"
-ARG="60 50 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="60 50 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 2 => ref 70 60 50 \n##"
-ARG="70 60 50"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="70 60 50"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 3 => ref 70 50 60 \n##"
-ARG="70 50 60"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="70 50 60"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 4 => ref 50 70 60 \n##"
-ARG="50 70 60"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="50 70 60"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 5 => ref 60 70 50 \n##"
-ARG="60 70 50"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="60 70 50"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 6 => ref 50 55 60 80 70 \n##"
-ARG="50 55 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="50 55 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 7 => ref 55 50 60 80 70 \n##"
-ARG="55 50 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="55 50 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 8 => ref 61 55 60 80 70 \n##"
-ARG="61 55 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="61 55 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 9 => ref 55 61 60 80 70 \n##"
-ARG="55 61 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="55 61 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 10 => ref 65 61 60 80 70 \n##"
-ARG="65 61 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="65 61 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 11 => ref 61 65 60 80 70 \n##"
-ARG="61 65 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="61 65 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 12 => ref 81 90 60 80 70 \n##"
-ARG="81 90 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="81 90 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 13 => ref 90 81 60 80 70 \n##"
-ARG="90 81 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="90 81 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 14 => ref 75 81 60 80 70 \n##"
-ARG="75 81 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="75 81 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 15 => ref 81 75 60 80 70 \n##"
-ARG="81 75 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="81 75 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 16 => ref 71 75 60 80 70 \n##"
-ARG="71 75 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="71 75 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 17 => ref 75 71 60 80 70 \n##"
-ARG="75 71 60 80 70"; ./bin/push_swap $ARG | ./checker_linux $ARG
+ARG="75 71 60 80 70"; ./bin/push_swap $ARG | wc -l
 
 # echo -e "#-----------------#\n#test 8 => ref 90 100 60 80 70 \n##"
 # ./bin/push_swap 90 100 60 80 70
