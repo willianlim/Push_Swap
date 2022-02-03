@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:48:05 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/03 09:50:54 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:23:43 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ void	ft_pick_value(t_circlist *l, t_circlist *lb)
 	l->middle = l->begin->next;
 	l->maximum = l->end;
 }
-
-// else if (lb->begin->val < l->end->val && lb->end->val > l->end->val)
-// {
-// 	ft_reverse_rotate_a(&l);
-// 	ft_push_a(&lb, &l);
-// 	ft_rotate_a(&l);
-// 	ft_rotate_a(&l);
-// }
 
 void	ft_second_part(t_circlist *l, t_circlist *lb)
 {

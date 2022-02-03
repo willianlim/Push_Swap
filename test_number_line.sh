@@ -1,5 +1,21 @@
 # reset
 # make debug
+
+echo -e "\n#-----------------#\n#TEST COM UM VALORE\n##"
+
+echo -e "\n#-----------------#\n#test 1 => ref 60 \n##"
+ARG="60"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#TEST COM DOIS VALORES\n##"
+
+echo -e "\n#-----------------#\n#test 1 => ref 60 50 \n##"
+ARG="60 50"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 2 => ref 50 60 \n##"
+ARG="50 60"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#TEST COM TRÊS VALORES\n##"
+
 echo -e "\n#-----------------#\n#test 1 => ref 60 50 70 \n##"
 ARG="60 50 70"; ./bin/push_swap $ARG | wc -l
 
@@ -14,6 +30,22 @@ ARG="50 70 60"; ./bin/push_swap $ARG | wc -l
 
 echo -e "\n#-----------------#\n#test 5 => ref 60 70 50 \n##"
 ARG="60 70 50"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#TEST COM QUATRO VALORES\n##"
+
+echo -e "\n#-----------------#\n#test 25 => ref 2 1 5 4 \n##"
+ARG="2 1 5 4"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 26 => ref 0 1 5 4 \n##"
+ARG="0 1 5 4"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 26 => ref 4 1 5 6 \n##"
+ARG="4 1 5 6"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 27 => ref 7 1 5 6 \n##"
+ARG="7 1 5 6"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#TEST COM CINCO VALORES\n##"
 
 echo -e "\n#-----------------#\n#test 6 => ref 50 55 60 80 70 \n##"
 ARG="50 55 60 80 70"; ./bin/push_swap $ARG | wc -l
