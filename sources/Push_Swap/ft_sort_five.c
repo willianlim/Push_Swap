@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:48:05 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/02 21:26:13 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/03 09:50:54 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ void	ft_pick_value(t_circlist *l, t_circlist *lb)
 	l->maximum = l->end;
 }
 
+// else if (lb->begin->val < l->end->val && lb->end->val > l->end->val)
+// {
+// 	ft_reverse_rotate_a(&l);
+// 	ft_push_a(&lb, &l);
+// 	ft_rotate_a(&l);
+// 	ft_rotate_a(&l);
+// }
+
 void	ft_second_part(t_circlist *l, t_circlist *lb)
 {
 	if (lb->begin->val > lb->end->val && lb->end->val > l->middle->val && \
@@ -34,13 +42,6 @@ void	ft_second_part(t_circlist *l, t_circlist *lb)
 		ft_rotate_a(&l);
 		ft_rotate_a(&l);
 		lb->size = 0;
-	}
-	else if (lb->begin->val < l->end->val && lb->end->val > l->end->val)
-	{
-		ft_reverse_rotate_a(&l);
-		ft_push_a(&lb, &l);
-		ft_rotate_a(&l);
-		ft_rotate_a(&l);
 	}
 	else
 	{
@@ -75,9 +76,9 @@ void	ft_sort_five(t_circlist *l, t_circlist *lb)
 	if (lb->begin->val < lb->end->val && lb->end->val < l->middle->val)
 		ft_swap_b(&lb);
 	if (lb->begin->val < lb->end->val && lb->end->val > l->middle->val && \
-	lb->begin->val < l->end->val)
+	lb->begin->val < l->end->val && lb->end->val < l->end->val)
 		ft_swap_b(&lb);
-	if (lb->begin->val > lb->end->val && lb->end->val > l->middle->val && \
+	else if (lb->begin->val > lb->end->val && lb->end->val > l->middle->val && \
 	(lb->end->val > l->end->val || lb->begin->val > l->end->val))
 		ft_swap_b(&lb);
 	while (lb->size)

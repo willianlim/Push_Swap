@@ -62,11 +62,14 @@ $(OBJDIR)/%.o: $(SRCDIR_PUSH)/%.c
 
 bonus: all
 
-# debug:
-# 	bash test.sh
+debug:
+	bash test.sh
+
+debug1:
+	bash test_number_line.sh
 
 clean:
-	$(MAKE) clean -C $(LIB_PATH)
+	$(MAKE) fclean -C $(LIB_PATH)
 
 fclean: clean
 	$(REMOVE) $(OBJDIR)

@@ -54,6 +54,24 @@ ARG="75 71 60 80 70"; ./bin/push_swap $ARG | wc -l
 echo -e "\n#-----------------#\n#test 18 => ref 2 4 1 3 5 \n##"
 ARG="2 4 1 3 5"; ./bin/push_swap $ARG | wc -l
 
+echo -e "\n#-----------------#\n#test 19 => ref 3 4 2 5 1 \n##"
+ARG="3 4 2 5 1"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 20 => ref 5 2 3 1 4 \n##"
+ARG="5 2 3 1 4"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 21 => ref 3 5 4 2 1 \n##"
+ARG="3 5 4 2 1"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 22 => ref 3 2 5 4 1 \n##"
+ARG="3 2 5 4 1"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 23 => ref 3 5 2 1 4 \n##"
+ARG="3 5 2 1 4"; ./bin/push_swap $ARG | wc -l
+
+echo -e "\n#-----------------#\n#test 24 => ref 2 1 5 4 3 \n##"
+ARG="2 1 5 4 3"; ./bin/push_swap $ARG | wc -l
+
 # echo -e "#-----------------#\n#test 8 => ref 90 100 60 80 70 \n##"
 # ./bin/push_swap 90 100 60 80 70
 # echo -e "#-----------------#\n#test 8 => ref 90 100 60 80 70 \n##"
