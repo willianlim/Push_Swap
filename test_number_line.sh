@@ -51,6 +51,9 @@ ARG="71 75 60 80 70"; ./bin/push_swap $ARG | wc -l
 echo -e "\n#-----------------#\n#test 17 => ref 75 71 60 80 70 \n##"
 ARG="75 71 60 80 70"; ./bin/push_swap $ARG | wc -l
 
+echo -e "\n#-----------------#\n#test 18 => ref 2 4 1 3 5 \n##"
+ARG="2 4 1 3 5"; ./bin/push_swap $ARG | wc -l
+
 # echo -e "#-----------------#\n#test 8 => ref 90 100 60 80 70 \n##"
 # ./bin/push_swap 90 100 60 80 70
 # echo -e "#-----------------#\n#test 8 => ref 90 100 60 80 70 \n##"
