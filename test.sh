@@ -46,6 +46,9 @@ ARG="4 1 5 6"; ./bin/push_swap $ARG | ./checker_linux $ARG
 echo -e "\n#-----------------#\n#test 4 => ref 7 1 5 6 \n##"
 ARG="7 1 5 6"; ./bin/push_swap $ARG | ./checker_linux $ARG
 
+echo -e "\n#-----------------#\n#test 5 => ref 7 1 10 6 \n##"
+ARG="7 1 10 6"; ./bin/push_swap $ARG | ./checker_linux $ARG
+
 echo -e "\n#-----------------#\n#TEST COM CINCO VALORES\n##"
 
 echo -e "\n#-----------------#\n#test 1 => ref 50 55 60 80 70 \n##"

@@ -68,6 +68,9 @@ debug:
 debug1:
 	bash test_number_line.sh
 
+debug2:
+	bash test_operation.sh
+
 clean:
 	$(MAKE) fclean -C $(LIB_PATH)
 

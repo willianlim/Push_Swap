@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:48:05 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/03 13:23:43 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:46:30 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	ft_pick_value(t_circlist *l, t_circlist *lb)
 {
-	ft_push_b(&l, &lb);
-	ft_push_b(&l, &lb);
+	if (l->size == 4)
+		ft_push_b(&l, &lb);
+	else
+	{
+		ft_push_b(&l, &lb);
+		ft_push_b(&l, &lb);
+	}
 	ft_sort_three(l);
 	l->minimum = l->begin;
 	l->middle = l->begin->next;
