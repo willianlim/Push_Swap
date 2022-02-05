@@ -33,7 +33,7 @@ SRC_OPER += ft_reverse_rotate_b.c ft_rra_rrb.c
 OBJOPER = $(SRC_OPER:.c=.o)
 OBJECTS_OPER = $(addprefix $(OBJDIR)/, $(OBJOPER))
 
-SRC_PUSH += ft_push_swap.c ft_sort_three.c ft_sort_five.c
+SRC_PUSH += ft_push_swap.c ft_sort_three.c ft_sort_five.c ft_sort_others.c
 OBJPUSH = $(SRC_PUSH:.c=.o)
 OBJECTS_PUSH = $(addprefix $(OBJDIR)/, $(OBJPUSH))
 
