@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:48:34 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/05 11:20:49 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/05 14:26:45 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n)
 	size_t		top_half_len;
 
 	top_half_len = 0;
-	if (n == 1)
+	if (n <= 1)
 		return ;
 	tree = ft_rbt_create();
 	l->val_pivot = pivot;
@@ -28,7 +28,7 @@ void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n)
 	i = -1;
 	while (++i < n)
 	{
-		if (p->val > l->val_pivot)
+		if (p->val < l->val_pivot)
 		{
 			p = p->next;
 			ft_push_b(&l, &lb);
@@ -64,9 +64,15 @@ void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n)
 			ft_rbt_insert(tree, p->val);
 			p = p->next;
 		}
-		ft_rbt_middle(tree->root, tree);
+		if (i > 1)
+			ft_rbt_middle(tree->root, tree);
+		else
+		{
+			ft_rbt_insert(tree, p->val);
+			ft_rbt_middle(tree->root, tree);
+		}
 	}
-	ft_sort_others(l, lb, tree->middle->data, (top_half_len - 1));
+	ft_sort_others(l, lb, tree->middle->data, (top_half_len));
 	ft_rbt_freeall(tree);
 	tree = ft_rbt_create();
 	i = -1;
@@ -81,7 +87,13 @@ void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n)
 			ft_rbt_insert(tree, p->val);
 			p = p->next;
 		}
-		ft_rbt_middle(tree->root, tree);
+		if (i > 1)
+			ft_rbt_middle(tree->root, tree);
+		else
+		{
+			ft_rbt_insert(tree, p->val);
+			ft_rbt_middle(tree->root, tree);
+		}
 	}
 	ft_sort_others(l, lb, tree->middle->data, (n - top_half_len));
 	i = -1;
