@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:48:34 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/05 14:26:45 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:12:25 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n)
 			ft_rbt_middle(tree->root, tree);
 		}
 	}
-	ft_sort_others(l, lb, tree->middle->data, (top_half_len));
+	ft_sort_others(l, lb, tree->middle->data, (n - top_half_len));
 	ft_rbt_freeall(tree);
 	tree = ft_rbt_create();
 	i = -1;

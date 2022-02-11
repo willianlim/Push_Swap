@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 09:43:06 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/05 13:40:01 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/11 16:24:39 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,6 @@ static int	ft_check(int argc, char *argv[], t_circlist *l, t_rbt_tree *tree)
 			return (0);
 		}
 	}
-	ft_rbt_minimun(tree);
-	ft_rbt_middle(tree->root, tree);
-	ft_rbt_maximun(tree);
 	return (1);
 }
 
@@ -113,10 +110,7 @@ int	ft_push_swap(int argc, char *argv[])
 	if (l->size > 3 && l->size <= 5)
 		ft_sort_five(l, lb);
 	if (l->size > 5)
-	{
-		// l->val_pivo = tree->middle->data;
-		ft_sort_others(l, lb, tree->middle->data, l->size);
-	}
+		ft_sort_others3(l, lb, l->size, 0);
 	// ft_circlist_print(l);
 	// ft_circlist_print(lb);
 	ft_circlist_destroy(&l);

@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:39:28 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/04 22:59:58 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:40:02 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 int		ft_push_swap(int argc, char *argv[]);
 void	ft_sort_three(t_circlist *l);
 void	ft_sort_five(t_circlist *l, t_circlist *lb);
-void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n);
+// void	ft_sort_others(t_circlist *l, t_circlist *lb, int pivot, size_t n);
+
+void	ft_sort_others2(t_circlist *l, t_circlist *lb, size_t n);
+
+void	ft_sort_others3(t_circlist *l, t_circlist *lb, size_t n, int bol);
+
+void	ft_sort_three2(t_circlist *l);
 
 #endif
