@@ -6,7 +6,7 @@
 /*   By: wrosendo <wrosendo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:48:34 by wrosendo          #+#    #+#             */
-/*   Updated: 2022/02/12 15:06:18 by wrosendo         ###   ########.fr       */
+/*   Updated: 2022/02/12 16:47:08 by wrosendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,14 +145,21 @@ size_t	ft_a_to_b(t_circlist *l, t_circlist *lb, size_t n, int bol)
 		// while (++i < top_half_len)
 		// 	ft_push_a(&lb, &l);
 
-		while (l->count_rotate > 3)
-		{
-			ft_a_to_b(l, lb, l->count_rotate, bol);
-			ft_sort_three2(l);
-			// ft_b_to_a(lb, l, top_half_len, bol);
-			l->count_rotate = ft_b_to_a(lb, l, lb->top_half_len - lb->count_rotate, 2);
-		}
+		// descomentar depois
+		// while (l->count_rotate > 3)
+		// {
+		// 	ft_a_to_b(l, lb, l->count_rotate, bol);
+		// 	ft_sort_three2(l);
+		// 	// ft_b_to_a(lb, l, top_half_len, bol);
+		// 	l->count_rotate = ft_b_to_a(lb, l, lb->top_half_len - lb->count_rotate, 2);
+		// }
 
+		ft_a_to_b(l, lb, l->count_rotate, bol);
+		ft_sort_three2(l);
+		// ft_b_to_a(lb, l, top_half_len, bol);
+		l->count_rotate = ft_b_to_a(lb, l, top_half_len, 2);
+		ft_a_to_b(l, lb, l->count_rotate, bol);
+		// ft_sort_three2(l);
 
 		// while (lb->top_half_len)
 		// {
